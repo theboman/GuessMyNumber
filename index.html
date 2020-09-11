@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess My Number!</title>
+    <script src='/app.js' defer></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="content">
+   
+  
+        <form name="formGameParameters" class="form">
+          <label for="range">Please Enter a Number between 5-100,000</label>
+          <input type="number" name="range" min="1" max="100000">
+          <label for="numOfGuesses" class="">How Many Guesses do you Want?</label>
+          <input type="number" name="numOfGuesses" min="1" max={numOfGuesses}>
+          <button type='submit' id='btn-parmsInput'>Start Game</button>
+          
+          
+        </form>
+        
+          <div class="guessed">Guess My Number! </div>
+        
+        <form name="formGuessing" class="form" id="myform">
+           <div>
+            <label for="userNumber">Guess a number between 1-99</label>
+            <input 
+                   type="number" 
+                   id="userNumberInput" 
+                   name="userNumberInput" 
+                   min="1" max="99"
+                   required>
+           </div>
+           <div>
+            <button type='submit' id="btn">Your Guess</button>
+           </div>
+          
+      </form>
+</body>
+</html>
