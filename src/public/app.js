@@ -2,7 +2,6 @@
 console.log("hello compilier for TS! ");
 console.log("----------------------- ");
 console.log("----------------------- ");
-console.log("----------------------- ");
 let myRandNumber = Math.floor(Math.random() * 100);
 const myForm = document.getElementById("myform");
 const userNumberInput = document.getElementById("userNumberInput");

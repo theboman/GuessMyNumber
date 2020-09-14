@@ -1,9 +1,13 @@
 
+console.log("hello compilier for TS! ");
+console.log("----------------------- ");
+console.log("----------------------- ");
+console.log("----------------------- ");
 
 let myRandNumber:number = Math.floor(Math.random() * 100);
 
-const myForm = document.getElementById("myform");
-const userNumberInput = document.getElementById("userNumberInput")! as HTMLInputElement;
+const myForm = document.getElementById("myform") as HTMLFormElement;
+const userNumberInput = document.getElementById("userNumberInput") as HTMLInputElement;
 let myGuesses: number[] = [];
 console.log(`This is the Random Number ${myRandNumber}`);
 
