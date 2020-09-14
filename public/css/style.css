@@ -1,3 +1,12 @@
+:root {
+  --textColor: #384047;
+}
+
+@font-face {
+  src: url("./fonts/DS-DIGI.TTF");
+  font-family: digital;
+}
+
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -5,18 +14,34 @@
 
 body {
   font-family: 'Nunito', sans-serif;
-  color: #384047;
+  color: pink;
 }
 
 .content {
-  /*   display:flex;
-    justify-content: center;
-    align-content:center;
-    background: grey; */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background: #8a97a0;
+}
+
+.title {
+  height: 70px;
+  margin: 5px auto;
+  font-family: digital;
+  font-size: 50px;
+  max-width: 420px;
 }
 
 .guessed {
-  /*   display:block; */
   height: 40px;
   background: #eeeeee;
   max-width: 220px;
@@ -80,7 +105,7 @@ button {
   margin-bottom: 10px;
 }
 
-button:click {
+button:active {
   color: #FFF;
   background-color: blue;
   width: 100%;

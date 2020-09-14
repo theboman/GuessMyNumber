@@ -1,47 +1,67 @@
+// SCSS Variables 
+$textColor: #384047;
+$textPink: pink;
+
 // CSS Variables 
+:root {
+    --textColor: #384047;
+}
 
---
 
-
+// Fonts 
+@font-face {
+    src: url("./fonts/DS-DIGI.TTF");
+    font-family: digital;
+}
 
 *, *:before, *:after {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
-  
-  body {
+
+
+body {
     font-family: 'Nunito', sans-serif;
-    color: #384047;
-  }
-  
-  .content {
-  /*   display:flex;
+    // color: $textColor;
+    color: $textPink;
+}
+
+.content {
+    display:flex;
+    flex-direction: column;
     justify-content: center;
-    align-content:center;
-    background: grey; */
-    
-  }
-  .guessed {
-  /*   display:block; */
+    align-content: center;
+    background: #8a97a0; 
+}
+
+.title {
+    height: 70px;
+    margin: 5px auto;
+    font-family: digital;
+    font-size: 50px;
+    max-width: 420px;
+}
+
+.guessed {
     height: 40px;
     background: #eeeeee;
     max-width: 220px;
     margin: 10px auto;
     border-radius: 8px;
-  }
-  
-  .form {
+}
+
+.form {
     max-width: 420px;
     margin: 5px auto;
     padding: 5px 20px;
     background: #f4f7f8;
     border-radius: 8px;
-  }
-  
-  
-  input[type="number"],textarea,
-  select {
+}
+
+
+input[type="number"],textarea,
+select {
     background: rgba(255,255,255,0.1);
     border: none;
     font-size: 16px;
@@ -54,43 +74,43 @@
     color: #8a97a0;
     box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
     margin-bottom: 30px;
-  }
-  
-  /* get rid of the spinner */
-  /* Chrome, Safari, Edge, Opera */
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
+}
+
+/* get rid of the spinner */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-  }
-  
-  /* Firefox */
-  input[type=number] {
+}
+
+/* Firefox */
+input[type=number] {
     -moz-appearance: textfield;
-  }
-  
-  label {
+}
+
+label {
     display: block;
     margin-bottom: 5px;
-  }
-  
-  button {
+}
+
+button {
     padding: 13px 39px 12px 39px;
     color: #FFF;
     background-color: #4bc970;
     font-size: 15px;
     text-align: center;
-  /*   font-style: normal; */
+    /*   font-style: normal; */
     border-radius: 5px;
     width: 100%;
     border: none;
     margin-bottom: 10px;
-  }
-  
-  button:click {
-    color: #FFF;
-    background-color: blue;
-    width: 100%;
-    border: none;
-    margin-bottom: 10px;
-  }
+    &:active {
+        color: #FFF;
+        background-color: blue;
+        width: 100%;
+        border: none;
+        margin-bottom: 10px;
+    }
+}
+
