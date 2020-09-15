@@ -4,11 +4,21 @@ console.log("----------------------- ");
 console.log("----------------------- ");
 console.log("----------------------- ");
 let myRandNumber = Math.floor(Math.random() * 100);
-const myForm = document.getElementById("myform");
+// ref's for DOM 
+const formGameParameters = document.getElementById("formGameParameters");
+const userRange = document.getElementById("userRange");
+const userNumGuesses = document.getElementById("userNumGuesses");
+const formGuessing = document.getElementById("formGuessing");
 const userNumberInput = document.getElementById("userNumberInput");
+console.log(userRange);
+let numOfGuesses = '5';
+userNumGuesses.setAttribute('max', numOfGuesses);
 let myGuesses = [];
 console.log(`This is the Random Number ${myRandNumber}`);
-myForm.addEventListener("submit", (e) => {
+userRange.addEventListener("input", (e) => {
+    console.log(userRange.value);
+});
+formGuessing.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log(`This is the Random Number withing the function ${myRandNumber}`);
     let myGuess = +userNumberInput.value;
@@ -23,5 +33,5 @@ myForm.addEventListener("submit", (e) => {
     else {
         console.log(`By Golly you got it! ${myRandNumber}`);
     }
-    myForm.reset();
+    formGuessing.reset();
 });

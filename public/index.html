@@ -17,18 +17,18 @@
             Guess My Number!
         </div>
 
-        <form name="formGameParameters" class="form">
+        <form name="formGameParameters" class="form" id="formGameParameters">
           <label for="range">Please Enter a Number between 5-100,000</label>
-          <input type="number" name="range" min="1" max="100000" required>
-          <label for="numOfGuesses" class="">How Many Guesses do you Want? </label>
-          <input type="number" name="numOfGuesses" min="1" max={numOfGuesses} required>
+          <input type="number" name="range" id="userRange" min="5" max="100000" required autofocus>
+          <label for="numOfGuesses">How Many Guesses do you Want? between 1 and {numOfGuesses} </label>
+          <input type="number" name="userNumGuesses" id="userNumGuesses" min="1" max="5" required disabled>
           <button type='submit' id='btn-parmsInput'>Start Game</button>
         </form>
         
 
         <div class="guessed">Guess My Number! </div>
         
-        <form name="formGuessing" class="form" id="myform">
+    <form name="formGuessing" class="form" id="formGuessing">
            <div>
             <label for="userNumber">Guess a number between 1-99</label>
             <input 
@@ -41,7 +41,7 @@
            <div>
             <button type='submit' id="btn-guess">Your Guess</button>
            </div>   
-      </form>
+    </form>
 
 
 </body>
