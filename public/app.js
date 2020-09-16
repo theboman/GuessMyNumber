@@ -1,34 +1,75 @@
 "use strict";
-console.log("hello compilier for TS! ");
-console.log("----------------------- ");
-console.log("----------------------- ");
-console.log("----------------------- ");
-let myRandNumber = Math.floor(Math.random() * 100);
+let myRandNumber = 10;
+let myRange = 5;
+let numOfGuesses = 15;
 // ref's for DOM 
+// 1st form inputs
 const formGameParameters = document.getElementById("formGameParameters");
 const userRange = document.getElementById("userRange");
 const userRangeError = document.getElementById("error_range");
 const userNumGuesses = document.getElementById("userNumGuesses");
+// 2nd form inputs
 const formGuessing = document.getElementById("formGuessing");
 const userNumberInput = document.getElementById("userNumberInput");
-console.log(userRange);
-let numOfGuesses = '5';
-userNumGuesses.setAttribute('max', numOfGuesses);
 let myGuesses = [];
 console.log(`This is the Random Number ${myRandNumber}`);
+//listen for values on 1st input to determin range and give range of guesses
 userRange.addEventListener("input", (e) => {
-    if (userRange.value < 5) {
-        userRange.classList.toggle("error");
+    if (+userRange.value < 5) {
+        userRange.classList.add("error");
         userRangeError.innerText = "Please enter a value greater than 5!";
         userNumGuesses.disabled = true;
     }
-    else if (userRange.value > 5) {
-        userRange.classList.toggle("error");
+    else {
+        if (userRange.classList.contains("error")) {
+            userRange.classList.remove("error");
+        }
         userRangeError.innerText = "";
-        console.log(userRange.value);
         userNumGuesses.disabled = false;
+        if (+userRange.value >= 5 && +userRange.value <= 10) {
+            console.log("a good guess range is 3!");
+        }
+        else if (+userRange.value >= 11 && +userRange.value <= 100) {
+            console.log("a good range is 6!");
+        }
     }
-});
+}
+//   if (+userRange.value > 5){
+//     if(userRange.classList.contains("error") {
+//       userRange.classList.remove("error");
+//     }
+//     userRangeError.innerText ="";
+//     console.log(userRange.value);
+//     userNumGuesses.disabled = false;
+//     userNumGuesses.setAttribute('max', numOfGuesses.toString());
+//   }
+// })
+//handler for 1st submit
+, 
+//   if (+userRange.value > 5){
+//     if(userRange.classList.contains("error") {
+//       userRange.classList.remove("error");
+//     }
+//     userRangeError.innerText ="";
+//     console.log(userRange.value);
+//     userNumGuesses.disabled = false;
+//     userNumGuesses.setAttribute('max', numOfGuesses.toString());
+//   }
+// })
+//handler for 1st submit
+formGameParameters.addEventListener("submit", (e) => {
+    e.preventDefault();
+    myRange = +userRange.value;
+    numOfGuesses = +userNumGuesses.value;
+    console.log("my Range: ", myRange);
+    console.log("number of guesses: ", numOfGuesses);
+    myRandNumber = Math.floor(Math.random() * myRange);
+    console.log("random number: ", myRandNumber);
+    formGameParameters.reset();
+})
+//handler for 2nd submit
+, 
+//handler for 2nd submit
 formGuessing.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log(`This is the Random Number withing the function ${myRandNumber}`);
@@ -45,4 +86,4 @@ formGuessing.addEventListener("submit", (e) => {
         console.log(`By Golly you got it! ${myRandNumber}`);
     }
     formGuessing.reset();
-});
+}));
