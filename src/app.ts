@@ -25,7 +25,7 @@ const userNumberInput = document.getElementById("userNumberInput") as HTMLInputE
 let myGuesses: number[] = [];
 console.log(`This is the Random Number ${myRandNumber}`);
 
-//listen for values on 1st input to determin range and give range of guesses
+//listen for values on 1st input to determin range of guesses
 userRange.addEventListener("input", (e: Event) => {
 
     if (+userRange.value < 5) {
