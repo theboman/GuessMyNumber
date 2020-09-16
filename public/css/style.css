@@ -58,15 +58,35 @@ body {
   border-radius: 8px;
 }
 
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.one {
+  font-size: 36px;
+  width: 50px;
+}
+
+.input-rt {
+  width: 250px;
+}
+
 input {
-  border: .5px solid #D1D1D1;
+  border: 2px solid #D1D1D1;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 36px;
   height: auto;
   margin: 0;
   outline: 0;
-  padding: 15px;
-  width: 50%;
+  padding: 5px;
+  width: 100%;
   color: #8a97a0;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
@@ -74,7 +94,7 @@ input {
 
 input:focus {
   background-color: #FAFDCD;
-  border: 1px solid #3396FF;
+  border: 2px solid #3396FF;
 }
 
 /* get rid of the spinner */
@@ -88,11 +108,6 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
 }
 
 button {

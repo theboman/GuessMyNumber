@@ -15,38 +15,53 @@
 
         <div class="title">
             Guess My Number!
-            
         </div>
     
 
     <form name="formGameParameters" class="form" id="formGameParameters">
-        <h4>build 1.010</h4>
-        <div class="input">
-          <label for="range">Please Enter a Number between 5-100,000</label>
-          <input type="number" name="range" class="" id="userRange" min="5" max="100000" required autofocus>
-          <div class="input_error" id="error_range"></div>
-        </div>
-        <div class="input">
-          <label for="numOfGuesses">How Many Guesses do you Want? between 1 and <span id="numOfGuesses"></span></label>
-          <input type="number" name="userNumGuesses" id="userNumGuesses" min="1" max="5" required disabled>
-          
+        <h4>build 1.011</h4>
+
+        <div class="">
+            <label for="range">Please Enter a Number between 5-100,000</label>
+                <div class="flex input">
+                    <div class="one">
+                        1
+                    </div>
+                    <div class="one">
+                        -
+                    </div>
+                    <div class="input-rt">
+                    
+                    <input type="number" name="range" class="" id="userRange" min="5" max="100000" required autofocus>
+                    <div class="input_error ht-5" id="error_range"></div>
+                </div>
+            </div>
+            <div class="input">
+            <label for="numOfGuesses">How Many Guesses do you Want? between 1 and <span id="numOfGuesses">?</span></label>
+            <input type="number" name="userNumGuesses" id="userNumGuesses" min="1" max="5" required disabled>
+            </div>
         </div>
         <button type='submit' id='btn-parmsInput'>Start Game</button>
     </form>
         
 
-        <div class="guessed">My Number! is between 1 and <span id="range"></span></div>
+        <div class="guessed">
+
+        </div>
         
     <form name="formGuessing" class="form" id="formGuessing">
-           <div>
-            <label for="userNumber">Guess a number between 1-99</label>
-            <input 
-                   type="number" 
-                   id="userNumberInput" 
-                   name="userNumberInput" 
-                   min="1" max="99"
-                   required>
+           <div class="input">
+                <label for="userNumber">Guess a number between 1-<span id="range">?</span></label>
+                <input 
+                    type="number" 
+                    id="userNumberInput" 
+                    name="userNumberInput" 
+                    min="1" max="99"
+                    required>
+                <div class="input_error" id="error_numberInput"></div>
            </div>
+           
+
            <div>
             <button type='submit' id="btn-guess">Your Guess</button>
            </div>   

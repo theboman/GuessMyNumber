@@ -2,17 +2,20 @@
 let myRandNumber = 10;
 let myRange = 5;
 let numOfGuesses = 15;
+let myGuesses = [];
 // ref's for DOM 
-// 1st form inputs
+// 1st form ref
 const formGameParameters = document.getElementById("formGameParameters");
 const userRange = document.getElementById("userRange");
-const userRangeError = document.getElementById("error_range");
+let userRangeError = document.getElementById("error_range");
 const userNumGuesses = document.getElementById("userNumGuesses");
-// 2nd form inputs
+let userMaxGuess = '3';
+let numOfGuessesHTML = document.getElementById("numOfGuesses");
+// 2nd form ref
+let rangeHTML = document.getElementById("range");
 const formGuessing = document.getElementById("formGuessing");
 const userNumberInput = document.getElementById("userNumberInput");
-let myGuesses = [];
-console.log(`This is the Random Number ${myRandNumber}`);
+//console.log(`This is the Random Number ${myRandNumber}`);
 //listen for values on 1st input to determin range of guesses
 userRange.addEventListener("input", (e) => {
     if (+userRange.value < 5) {
@@ -24,13 +27,32 @@ userRange.addEventListener("input", (e) => {
         if (userRange.classList.contains("error")) {
             userRange.classList.remove("error");
         }
+        ;
         userRangeError.innerText = "";
         userNumGuesses.disabled = false;
         if (+userRange.value >= 5 && +userRange.value <= 10) {
             console.log("a good guess range is 3!");
+            userMaxGuess = '3';
+            userNumGuesses.setAttribute('max', userMaxGuess);
+            numOfGuessesHTML.innerText = userMaxGuess;
         }
         else if (+userRange.value >= 11 && +userRange.value <= 100) {
             console.log("a good range is 6!");
+            userMaxGuess = '6';
+            userNumGuesses.setAttribute('max', userMaxGuess);
+            numOfGuessesHTML.innerText = userMaxGuess;
+        }
+        else if (+userRange.value >= 101 && +userRange.value <= 300) {
+            console.log("a good range is 8!");
+            userMaxGuess = '8';
+            userNumGuesses.setAttribute('max', userMaxGuess);
+            numOfGuessesHTML.innerText = userMaxGuess;
+        }
+        else {
+            console.log("a good range is 10!");
+            userMaxGuess = '10';
+            userNumGuesses.setAttribute('max', userMaxGuess);
+            numOfGuessesHTML.innerText = userMaxGuess;
         }
     }
 }
@@ -42,8 +64,6 @@ userRange.addEventListener("input", (e) => {
 //     console.log(userRange.value);
 //     userNumGuesses.disabled = false;
 //     userNumGuesses.setAttribute('max', numOfGuesses.toString());
-//   }
-// })
 //handler for 1st submit
 , 
 //   if (+userRange.value > 5){
@@ -54,16 +74,16 @@ userRange.addEventListener("input", (e) => {
 //     console.log(userRange.value);
 //     userNumGuesses.disabled = false;
 //     userNumGuesses.setAttribute('max', numOfGuesses.toString());
-//   }
-// })
 //handler for 1st submit
 formGameParameters.addEventListener("submit", (e) => {
     e.preventDefault();
     myRange = +userRange.value;
     numOfGuesses = +userNumGuesses.value;
+    userNumberInput.setAttribute('max', myRange.toString());
+    rangeHTML.innerText = myRange.toString();
     console.log("my Range: ", myRange);
     console.log("number of guesses: ", numOfGuesses);
-    myRandNumber = Math.floor(Math.random() * myRange);
+    myRandNumber = Math.floor(Math.random() * myRange) + 1;
     console.log("random number: ", myRandNumber);
     formGameParameters.reset();
 })
@@ -72,7 +92,6 @@ formGameParameters.addEventListener("submit", (e) => {
 //handler for 2nd submit
 formGuessing.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log(`This is the Random Number withing the function ${myRandNumber}`);
     let myGuess = +userNumberInput.value;
     myGuesses.push(myGuess);
     console.log(myGuesses);
