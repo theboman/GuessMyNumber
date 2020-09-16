@@ -9,6 +9,7 @@ let myRandNumber:number = Math.floor(Math.random() * 100);
 
 const formGameParameters = document.getElementById("formGameParameters") as HTMLFormElement;
 const userRange = document.getElementById("userRange") as HTMLInputElement;
+const userRangeError = document.getElementById("error_range");
 const userNumGuesses = document.getElementById("userNumGuesses") as HTMLInputElement;
 
 const formGuessing = document.getElementById("formGuessing") as HTMLFormElement;
@@ -25,8 +26,23 @@ let myGuesses: number[] = [];
 console.log(`This is the Random Number ${myRandNumber}`);
 
 userRange.addEventListener("input", (e: Event) => {
-  console.log(userRange.value);
+
+  if (userRange.value < 5) {
+    userRange.classList.toggle("error");
+    userRangeError.innerText ="Please enter a value greater than 5!";
+
+    userNumGuesses.disabled = true;
+
+  } else if (userRange.value > 5){
+    userRange.classList.toggle("error");
+    userRangeError.innerText ="";
+    console.log(userRange.value);
+    userNumGuesses.disabled = false;
+    
+  }
+  
 })
+
 
 formGuessing.addEventListener("submit", (e: Event) => {
   e.preventDefault();

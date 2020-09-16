@@ -57,21 +57,23 @@ body {
   border-radius: 8px;
 }
 
-input[type="number"], textarea,
-select {
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
+input {
+  border: .5px solid #D1D1D1;
+  border-radius: 10px;
   font-size: 16px;
   height: auto;
   margin: 0;
   outline: 0;
   padding: 15px;
   width: 50%;
-  background-color: #e8eeef;
   color: #8a97a0;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-  margin-bottom: 30px;
+}
+
+input:focus {
+  background-color: #FAFDCD;
+  border: 1px solid #3396FF;
 }
 
 /* get rid of the spinner */
@@ -111,5 +113,19 @@ button:active {
   width: 100%;
   border: none;
   margin-bottom: 10px;
+}
+
+.input_error {
+  font-size: 10px;
+  font-style: bold;
+  color: red;
+}
+
+.input {
+  margin-bottom: 30px;
+}
+
+input.error {
+  border: 2px solid #FF0000;
 }
 /*# sourceMappingURL=style.css.map */
