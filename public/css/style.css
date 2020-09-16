@@ -44,8 +44,9 @@ body {
 .guessed {
   height: 40px;
   background: #eeeeee;
-  max-width: 220px;
+  min-width: 450px;
   margin: 10px auto;
+  padding: 5px 10px;
   border-radius: 8px;
 }
 
