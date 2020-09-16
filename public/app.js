@@ -13,7 +13,7 @@ const formGuessing = document.getElementById("formGuessing");
 const userNumberInput = document.getElementById("userNumberInput");
 let myGuesses = [];
 console.log(`This is the Random Number ${myRandNumber}`);
-//listen for values on 1st input to determin range and give range of guesses
+//listen for values on 1st input to determin range of guesses
 userRange.addEventListener("input", (e) => {
     if (+userRange.value < 5) {
         userRange.classList.add("error");
