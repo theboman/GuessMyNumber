@@ -14,6 +14,7 @@ let userRangeError = document.getElementById("error_range") as HTMLElement;
 const userNumGuesses = document.getElementById("userNumGuesses") as HTMLInputElement;
 let userMaxGuess:string = '3';
 let numOfGuessesHTML = document.getElementById("numOfGuesses") as HTMLElement;
+let modal_bg = document.getElementById('modal-bg') as HTMLElement;
 
 // 2nd form ref
 let rangeHTML = document.getElementById("range") as HTMLElement;
@@ -93,7 +94,7 @@ formGameParameters.addEventListener("submit", (e:Event)=>{
   console.log("number of guesses: ",numOfGuesses);
 
   myRandNumber= Math.floor(Math.random() * myRange)+1;
-
+  modal_bg.classList.add("modal-bg-hidden");
   console.log("random number: ",myRandNumber);
   formGameParameters.reset();
 })

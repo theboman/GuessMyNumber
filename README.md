@@ -7,12 +7,14 @@
 https://musing-hodgkin-0771d1.netlify.app/
 
 ---
-# build 1.011
+# build 1.012
 ## Tasks
 * wireframe of flow? DONE - link()
 * params input screen 
-    * sets range
-    * sets number of guessses based on range
+    * sets range DONE
+    * sets number of guessses based on range DONE
+        * error handling
+    * modal / hide after inputs - DONE
 * get guesses showing up in div
 * have a reveal of guessed number
     * silly reward screen? 

@@ -11,6 +11,7 @@ let userRangeError = document.getElementById("error_range");
 const userNumGuesses = document.getElementById("userNumGuesses");
 let userMaxGuess = '3';
 let numOfGuessesHTML = document.getElementById("numOfGuesses");
+let modal_bg = document.getElementById('modal-bg');
 // 2nd form ref
 let rangeHTML = document.getElementById("range");
 const formGuessing = document.getElementById("formGuessing");
@@ -84,6 +85,7 @@ formGameParameters.addEventListener("submit", (e) => {
     console.log("my Range: ", myRange);
     console.log("number of guesses: ", numOfGuesses);
     myRandNumber = Math.floor(Math.random() * myRange) + 1;
+    modal_bg.classList.add("modal-bg-hidden");
     console.log("random number: ", myRandNumber);
     formGameParameters.reset();
 })
