@@ -18,12 +18,12 @@ let modal_bg = document.getElementById('modal-bg') as HTMLElement;
 
 // 2nd form ref
 let rangeHTML = document.getElementById("range") as HTMLElement;
+const guessed = document.getElementById("guessed") as HTMLElement;
 const formGuessing = document.getElementById("formGuessing") as HTMLFormElement;
 const userNumberInput = document.getElementById("userNumberInput") as HTMLInputElement;
 
-//console.log(`This is the Random Number ${myRandNumber}`);
 
-//listen for values on 1st input to determin range of guesses
+//Handler input - listen for values on 1st input to determin range of guesses
 userRange.addEventListener("input", (e: Event) => {
 
     if (+userRange.value < 5) {
@@ -96,6 +96,7 @@ formGameParameters.addEventListener("submit", (e:Event)=>{
   myRandNumber= Math.floor(Math.random() * myRange)+1;
   modal_bg.classList.add("modal-bg-hidden");
   console.log("random number: ",myRandNumber);
+  
   formGameParameters.reset();
 })
 

@@ -7,7 +7,8 @@
 https://musing-hodgkin-0771d1.netlify.app/
 
 ---
-# build 1.012
+# build 1.013
+updated guess box.. working not sure which way to go with this svg? canvas? simple css & divs... 
 ## Tasks
 * wireframe of flow? DONE - link()
 * params input screen 

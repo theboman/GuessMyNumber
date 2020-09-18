@@ -30,6 +30,7 @@ body {
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
+  height: 100vh;
   background: #8a97a0;
 }
 
@@ -42,12 +43,29 @@ body {
 }
 
 .guessed {
-  height: 40px;
   background: #eeeeee;
   min-width: 450px;
   margin: 10px auto;
   padding: 5px 10px;
   border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: .75em;
+  text-align: center;
+}
+
+.guess-box {
+  width: 70px;
+  height: 50px;
+  margin: 1px;
+  padding-top: 5px;
+  background-color: #B2FF95;
+  border: 1px solid #a7a5a5;
+  border-radius: 5px;
 }
 
 .form {
@@ -161,5 +179,10 @@ input.error {
 .modal-bg-hidden {
   visibility: hidden;
   opacity: 0;
+}
+
+.modal {
+  position: relative;
+  top: 50px;
 }
 /*# sourceMappingURL=style.css.map */
