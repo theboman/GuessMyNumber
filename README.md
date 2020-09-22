@@ -7,8 +7,10 @@
 https://musing-hodgkin-0771d1.netlify.app/
 
 ---
-# build 1.013
-updated guess box.. working not sure which way to go with this svg? canvas? simple css & divs... 
+# build 1.014
+updated guess box.. building a DOM way of building div with the number of guesses and target these via DOM to give user feedback
+
+
 ## Tasks
 * wireframe of flow? DONE - link()
 * params input screen 

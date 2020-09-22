@@ -3,11 +3,11 @@
 
 let myRandNumber:number = 10;
 let myRange:number = 5;
-let numOfGuesses:number = 15;
+let numOfGuesses:number = 10;
 let myGuesses: number[] = [];
 
 // ref's for DOM 
-// 1st form ref
+// 1st form ref - these are all typecast to the correct type TS
 const formGameParameters = document.getElementById("formGameParameters") as HTMLFormElement;
 const userRange = document.getElementById("userRange") as HTMLInputElement;
 let userRangeError = document.getElementById("error_range") as HTMLElement;
@@ -16,12 +16,14 @@ let userMaxGuess:string = '3';
 let numOfGuessesHTML = document.getElementById("numOfGuesses") as HTMLElement;
 let modal_bg = document.getElementById('modal-bg') as HTMLElement;
 
-// 2nd form ref
+// 2nd form ref --
 let rangeHTML = document.getElementById("range") as HTMLElement;
 const guessed = document.getElementById("guessed") as HTMLElement;
 const formGuessing = document.getElementById("formGuessing") as HTMLFormElement;
 const userNumberInput = document.getElementById("userNumberInput") as HTMLInputElement;
 
+// Guessed number feedback ref
+let guessDisplay = document.getElementById('guessed') as HTMLElement;
 
 //Handler input - listen for values on 1st input to determin range of guesses
 userRange.addEventListener("input", (e: Event) => {
@@ -67,7 +69,7 @@ userRange.addEventListener("input", (e: Event) => {
 
     }
 
-}
+});
   
   
 //   if (+userRange.value > 5){
@@ -95,10 +97,43 @@ formGameParameters.addEventListener("submit", (e:Event)=>{
 
   myRandNumber= Math.floor(Math.random() * myRange)+1;
   modal_bg.classList.add("modal-bg-hidden");
-  console.log("random number: ",myRandNumber);
+  console.log("random number: "+myRandNumber);
   
   formGameParameters.reset();
-})
+});
+
+// Creating a block of HTML as a function
+// -----------------------------------------------------------------------
+
+console.log('this is number of guesses: '+numOfGuesses);
+
+
+// function outterDivGuess (i:number) {
+//   let createDiv = document.createElement('div') as HTMLElement;
+//   createDiv.setAttribute('id', `guess${i}`);
+// };
+
+// function 
+
+for (let i:number = 0; i < numOfGuesses; i++) {
+
+  let createDiv = document.createElement('div') as HTMLElement;
+  createDiv.setAttribute('id', `guess_${i}`);
+
+  let innerDivTitle = document.createElement('div') as HTMLElement;
+  innerDivTitle.setAttribute('id', `title_${i}`);
+  innerDivTitle.innerHTML =`Guess ${i+1}`;
+
+  let innerDivGuessedNum = document.createElement('div') as HTMLElement;
+  innerDivGuessedNum.setAttribute('id', `guessed_num_${i}`);
+
+  let innerDivFeedback = document.createElement('div') as HTMLElement;
+  innerDivFeedback.setAttribute('id', `feedback_${i}`);
+
+  let nodeGroupInnerStuff
+  guessDisplay.appendChild(createDiv).append(innerDivTitle, innerDivGuessedNum, innerDivFeedback);
+}
+
 
 
 //handler for 2nd submit
@@ -119,3 +154,7 @@ formGuessing.addEventListener("submit", (e:Event) => {
 
   formGuessing.reset();
 })
+
+
+
+

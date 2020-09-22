@@ -1,10 +1,10 @@
 "use strict";
 let myRandNumber = 10;
 let myRange = 5;
-let numOfGuesses = 15;
+let numOfGuesses = 10;
 let myGuesses = [];
 // ref's for DOM 
-// 1st form ref
+// 1st form ref - these are all typecast to the correct type TS
 const formGameParameters = document.getElementById("formGameParameters");
 const userRange = document.getElementById("userRange");
 let userRangeError = document.getElementById("error_range");
@@ -12,12 +12,14 @@ const userNumGuesses = document.getElementById("userNumGuesses");
 let userMaxGuess = '3';
 let numOfGuessesHTML = document.getElementById("numOfGuesses");
 let modal_bg = document.getElementById('modal-bg');
-// 2nd form ref
+// 2nd form ref --
 let rangeHTML = document.getElementById("range");
+const guessed = document.getElementById("guessed");
 const formGuessing = document.getElementById("formGuessing");
 const userNumberInput = document.getElementById("userNumberInput");
-//console.log(`This is the Random Number ${myRandNumber}`);
-//listen for values on 1st input to determin range of guesses
+// Guessed number feedback ref
+let guessDisplay = document.getElementById('guessed');
+//Handler input - listen for values on 1st input to determin range of guesses
 userRange.addEventListener("input", (e) => {
     if (+userRange.value < 5) {
         userRange.classList.add("error");
@@ -56,17 +58,7 @@ userRange.addEventListener("input", (e) => {
             numOfGuessesHTML.innerText = userMaxGuess;
         }
     }
-}
-//   if (+userRange.value > 5){
-//     if(userRange.classList.contains("error") {
-//       userRange.classList.remove("error");
-//     }
-//     userRangeError.innerText ="";
-//     console.log(userRange.value);
-//     userNumGuesses.disabled = false;
-//     userNumGuesses.setAttribute('max', numOfGuesses.toString());
-//handler for 1st submit
-, 
+});
 //   if (+userRange.value > 5){
 //     if(userRange.classList.contains("error") {
 //       userRange.classList.remove("error");
@@ -86,11 +78,30 @@ formGameParameters.addEventListener("submit", (e) => {
     console.log("number of guesses: ", numOfGuesses);
     myRandNumber = Math.floor(Math.random() * myRange) + 1;
     modal_bg.classList.add("modal-bg-hidden");
-    console.log("random number: ", myRandNumber);
+    console.log("random number: " + myRandNumber);
     formGameParameters.reset();
-})
-//handler for 2nd submit
-, 
+});
+// Creating a block of HTML as a function
+// -----------------------------------------------------------------------
+console.log('this is number of guesses: ' + numOfGuesses);
+// function outterDivGuess (i:number) {
+//   let createDiv = document.createElement('div') as HTMLElement;
+//   createDiv.setAttribute('id', `guess${i}`);
+// };
+// function 
+for (let i = 0; i < numOfGuesses; i++) {
+    let createDiv = document.createElement('div');
+    createDiv.setAttribute('id', `guess_${i}`);
+    let innerDivTitle = document.createElement('div');
+    innerDivTitle.setAttribute('id', `title_${i}`);
+    innerDivTitle.innerHTML = `Guess ${i + 1}`;
+    let innerDivGuessedNum = document.createElement('div');
+    innerDivGuessedNum.setAttribute('id', `guessed_num_${i}`);
+    let innerDivFeedback = document.createElement('div');
+    innerDivFeedback.setAttribute('id', `feedback_${i}`);
+    let nodeGroupInnerStuff;
+    guessDisplay.appendChild(createDiv).append(innerDivTitle, innerDivGuessedNum, innerDivFeedback);
+}
 //handler for 2nd submit
 formGuessing.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -107,4 +118,4 @@ formGuessing.addEventListener("submit", (e) => {
         console.log(`By Golly you got it! ${myRandNumber}`);
     }
     formGuessing.reset();
-}));
+});
