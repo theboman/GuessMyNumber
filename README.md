@@ -7,8 +7,8 @@
 https://musing-hodgkin-0771d1.netlify.app/
 
 ---
-# build 1.014
-updated guess box.. building a DOM way of building div with the number of guesses and target these via DOM to give user feedback
+# build 1.015
+updated guess box.. guess box is working need to add win screen, logic for end of guesses.
 
 
 ## Tasks

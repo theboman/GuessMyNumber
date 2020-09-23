@@ -4,6 +4,7 @@
 let myRandNumber:number = 10;
 let myRange:number = 5;
 let numOfGuesses:number = 10;
+let whatGuessAmI:number = 0;
 let myGuesses: number[] = [];
 
 // ref's for DOM 
@@ -94,6 +95,7 @@ formGameParameters.addEventListener("submit", (e:Event)=>{
 
   console.log("my Range: ",myRange);
   console.log("number of guesses: ",numOfGuesses);
+  createGuessDivs(numOfGuesses);
 
   myRandNumber= Math.floor(Math.random() * myRange)+1;
   modal_bg.classList.add("modal-bg-hidden");
@@ -105,7 +107,7 @@ formGameParameters.addEventListener("submit", (e:Event)=>{
 // Creating a block of HTML as a function
 // -----------------------------------------------------------------------
 
-console.log('this is number of guesses: '+numOfGuesses);
+//console.log('this is number of guesses: '+numOfGuesses);
 
 
 // function outterDivGuess (i:number) {
@@ -113,25 +115,30 @@ console.log('this is number of guesses: '+numOfGuesses);
 //   createDiv.setAttribute('id', `guess${i}`);
 // };
 
-// function 
+// function createGuess Divs
+function createGuessDivs (numberOfGuesses:number) {
+        for (let i:number = 0; i < numOfGuesses; i++) {
 
-for (let i:number = 0; i < numOfGuesses; i++) {
+          let createDiv = document.createElement('div') as HTMLElement;
+          createDiv.setAttribute('id', `guess_${i}`);
+          createDiv.classList.add('guess-box')
 
-  let createDiv = document.createElement('div') as HTMLElement;
-  createDiv.setAttribute('id', `guess_${i}`);
+          let innerDivTitle = document.createElement('div') as HTMLElement;
+          innerDivTitle.setAttribute('id', `title_${i}`);
+          //innerDivTitle.classList.add('strike-through');
+          innerDivTitle.innerHTML =`Guess ${i+1}`;
 
-  let innerDivTitle = document.createElement('div') as HTMLElement;
-  innerDivTitle.setAttribute('id', `title_${i}`);
-  innerDivTitle.innerHTML =`Guess ${i+1}`;
+          let innerDivGuessedNum = document.createElement('div') as HTMLElement;
+          innerDivGuessedNum.setAttribute('id', `guessed_num_${i}`);
+          innerDivGuessedNum.classList.add('italic', 'padding');
 
-  let innerDivGuessedNum = document.createElement('div') as HTMLElement;
-  innerDivGuessedNum.setAttribute('id', `guessed_num_${i}`);
+          let innerDivFeedback = document.createElement('div') as HTMLElement;
+          innerDivFeedback.setAttribute('id', `feedback_${i}`);
+          innerDivFeedback.classList.add('sm-text');
 
-  let innerDivFeedback = document.createElement('div') as HTMLElement;
-  innerDivFeedback.setAttribute('id', `feedback_${i}`);
+          guessDisplay.appendChild(createDiv).append(innerDivTitle, innerDivGuessedNum, innerDivFeedback);
+        }
 
-  let nodeGroupInnerStuff
-  guessDisplay.appendChild(createDiv).append(innerDivTitle, innerDivGuessedNum, innerDivFeedback);
 }
 
 
@@ -141,17 +148,37 @@ formGuessing.addEventListener("submit", (e:Event) => {
   e.preventDefault();
 
   let myGuess:number = +userNumberInput.value;
-  myGuesses.push(myGuess);
-  console.log(myGuesses);
+  let feedback:string = '';
+  //myGuesses.push(myGuess);
+  //console.log(myGuesses);
+  //whatGuessAmI = whatGuessAmI+1;
+  
+
+  console.log(`This is the current guess number: ${whatGuessAmI}`);
+  
 
   if (myGuess > myRandNumber) {
     console.log("To High Jack");
+    feedback = 'To High Jack';
+
   } else if (myGuess < myRandNumber) {
     console.log("To Low Blow");
+    feedback = 'To Low Blow';
   } else {
     console.log(`By Golly you got it! ${myRandNumber}`);
+    feedback = `By Golly you got it! ${myRandNumber}`;
   }
 
+  let guess_box = document.getElementById(`guess_${whatGuessAmI}`) as HTMLElement;
+  guess_box.classList.add('guessed');
+  let guess_box_nodes = guess_box.querySelectorAll('div') as NodeListOf<HTMLElement>;
+  guess_box_nodes[0].classList.add('strike-through');
+  guess_box_nodes[1].innerText = myGuess.toString();
+  guess_box_nodes[2].innerText = feedback;
+
+
+
+  ++whatGuessAmI;
   formGuessing.reset();
 })
 
